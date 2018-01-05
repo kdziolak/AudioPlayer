@@ -1,0 +1,53 @@
+*{
+  margin: 0;
+  padding:0;
+}
+
+.menu{
+  height: 100vh;
+  background: steelblue;
+  overflow-y: hidden;
+}
+
+.nav-item{
+  text-align: center;
+  width:80%;
+  border: 0.1em solid gainsboro;
+  border-radius: 10px;
+  margin: 2vh;
+  padding: 0.6vh 1.5vh 0.6vh 1.5vh;
+  font-size: 1.3em;
+  color: gainsboro;
+  cursor: pointer;
+  transition: 0.5s;
+  align-self: center;
+}
+.nav-item:hover{
+  background-color: aliceblue;
+  color: steelblue;
+}
+
+.active{
+  background-color: aliceblue;
+  color: steelblue;
+}
+
+.logo{
+  margin-top: 10vh;
+  margin-bottom: 15vh;
+  text-align: center;
+}
+
+.logo a{
+  color: black;
+}
+
+.logo a:hover{
+  text-decoration-line: none;
+}
+
+.other{
+  background-color: whitesmoke;
+}
+
+
