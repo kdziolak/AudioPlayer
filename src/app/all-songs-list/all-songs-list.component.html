@@ -2,7 +2,10 @@
   <div class="row">
     <h3 class="col-lg-3">Wszystkie utwory</h3>
     <div class="col-lg-4"></div>
-    <input type="text" [(ngModel)]="title" #inp placeholder="Szukaj utworu po tytule" class="form-control col-lg-3">
+    <input type="text"
+           [(ngModel)]="title"
+           #inp placeholder="Szukaj utworu po tytule"
+           class="form-control col-lg-3">
   </div>
 </div>
 <div class="line"></div>
@@ -10,24 +13,22 @@
 
     <ngx-carousel
       [inputs]="carouselTile"
-      (carouselLoad)="carouselTileLoad($event)"
-      *ngIf="!inp.value">
-      <ngx-tile NgxCarouselItem *ngFor="let song of songs; let i = index">
-          <div class="margin">
-            <div class="card"(click)="play(audio, song)">
-              <img class="card-img-top img-fluid" src={{song.urlToPic}} alt="Card image cap">
-              <div class="card-block">
-                <h4 class="card-title">{{song.artist}}</h4>
-                <p class="card-text">{{song.title}}</p>
-                <p class="card-text"><small class="text-muted">{{song.type}}</small></p>
-                <p class="card-text player">odtwórz</p>
-              </div>
-              <iframe #audio class="onplay"></iframe>
-            </div>
-          </div>
-      </ngx-tile>
+      *ngIf="!inp.value && setView()"
 
-
+      >
+            <ngx-tile NgxCarouselItem
+                      *ngFor="let song of songs">
+                  <div class="card" (click)="play(audio, song)">
+                    <img class="card-img-top img-fluid" src={{song.urlToPic}} alt="Card image cap">
+                    <div class="card-block">
+                      <h4 class="card-title">{{song.artist}}</h4>
+                      <p class="card-text">{{song.title}}</p>
+                      <p class="card-text"><small class="text-muted">{{song.type}}</small></p>
+                      <p class="card-text player">odtwórz</p>
+                    </div>
+                    <iframe #audio class="onplay"></iframe>
+                  </div>
+            </ngx-tile>
       <button NgxCarouselPrev class="prev btn btn-carousel">&lt;</button>
       <button NgxCarouselNext class="next btn btn-carousel">&gt;</button>
 
@@ -35,29 +36,29 @@
 
     <ngx-carousel
       [inputs]="carouselTile"
-      (carouselLoad)="carouselTileLoad($event)"
-      *ngIf="inp.value">
-
-      <ngx-tile NgxCarouselItem *ngFor="let song of songs; let i = index">
-        <div class="margin">
-          <div class="card"(click)="play(audio, song)">
-            <img class="card-img-top img-fluid" src={{song.urlToPic}} alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">{{song.artist}}</h4>
-              <p class="card-text">{{song.title}}</p>
-              <p class="card-text"><small class="text-muted">{{song.type}}</small></p>
-              <p class="card-text player">odtwórz</p>
-            </div>
-            <iframe #audio class="onplay"></iframe>
+      *ngIf="inp.value"
+      >
+      <ngx-tile NgxCarouselItem *ngFor="let song of songs"
+                [style.display]="searchSong(song.title, title, btnPrev, btnNext)" >
+        <div class="card"
+             [style.display]="searchSong(song.title, title, btnPrev, btnNext)"
+             (click)="play(audio, song)">
+          <img class="card-img-top img-fluid"
+               src={{song.urlToPic}}
+               alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">{{song.artist}}</h4>
+            <p class="card-text">{{song.title}}</p>
+            <p class="card-text"><small class="text-muted">{{song.type}}</small></p>
+            <p class="card-text player">odtwórz</p>
           </div>
+          <iframe #audio
+                  class="onplay">
+          </iframe>
         </div>
       </ngx-tile>
-
-
-      <button NgxCarouselPrev class="prev btn btn-carousel">&lt;</button>
-      <button NgxCarouselNext class="next btn btn-carousel">&gt;</button>
-
-
+      <button NgxCarouselPrev #btnPrev class="prev btn btn-carousel">&lt;</button>
+      <button NgxCarouselNext #btnNext class="next btn btn-carousel">&gt;</button>
 
     </ngx-carousel>
 </div>

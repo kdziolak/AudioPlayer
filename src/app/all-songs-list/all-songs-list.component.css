@@ -53,21 +53,23 @@ h3{
 }
 
 .panel{
+  width: 100%;
   height: 80vh;
   display: flex;
+  padding-top: 6vh;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-ngx-carousel {
-  width: 80%;
+ngx-carousel{
+  width:80%;
 }
 
 .btn-carousel{
   position:absolute;
   background-color: steelblue;
   height: 5vh;
-  top: 40%;
+  top: 21vh;
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0 2vh;
@@ -80,3 +82,4 @@ ngx-carousel {
 .next{
   right: -7%;
 }
+
