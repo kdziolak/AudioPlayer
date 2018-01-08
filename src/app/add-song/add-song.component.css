@@ -1,0 +1,25 @@
+h3{
+  margin: 5%;
+}
+
+.line {
+  width: 90%;
+  margin-left: 5%;
+  border: 0.2vh solid darkgrey;
+  text-shadow: 0 0 1em transparent;
+}
+.panel{
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.form-control:first-child{
+  margin-top: 0;
+}
+
+.form-control{
+  margin-top: 4%;
+  margin-left: 4%;
+}

@@ -73,7 +73,7 @@ export class AllSongsListComponent implements OnInit {
       this.index = 0;
       return 'none';
     }
-    if(this.index === 5) {
+    if(this.index >= 5) {
       prev.style.display = 'inline';
       next.style.display = 'inline';
     }
@@ -89,7 +89,6 @@ export class AllSongsListComponent implements OnInit {
     }else{
       this.carouselTile.interval = 100000000;
       this.carouselTile.point.visible = true;
-
       return true;
     }
   }

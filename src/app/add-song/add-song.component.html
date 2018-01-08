@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="col-lg-3">Dodaj utwór</h3>
+  </div>
+</div>
+<div class="line"></div>
+<div class="panel pane-default">
+  <form class="container input-group-lg">
+    <input type="text"
+           [(ngModel)]="song.artist"
+           [ngModelOptions]="{standalone: true}"
+           class="row col-lg-5 form-control"
+           placeholder="Wykonawca"
+           >
+
+    <input type="text"
+           [(ngModel)]="song.title"
+           [ngModelOptions]="{standalone: true}"
+           class="row col-lg-5 form-control"
+           placeholder="Nazwa utworu"
+           >
+
+    <select class="row col-lg-5 form-control" >
+      <option>< Rodzaj utworu ></option>
+    </select>
+
+    <input type="text"
+           [(ngModel)]="song.urlToPic"
+           [ngModelOptions]="{standalone: true}"
+           class="row col-lg-5 form-control"
+           placeholder="URL do zdjęcia"
+           >
+
+    <input type="text"
+           [(ngModel)]="song.urlToSong"
+           [ngModelOptions]="{standalone: true}"
+           class="row col-lg-5 form-control"
+           placeholder="URL do utworu na YouTub"
+           >
+
+    <button type="button" (click)="onSave()" class="row col-lg-2 form-control btn btn-lg btn-primary" aria-describedby="sizing-addon1">Dodaj</button>
+  </form>
+</div>

@@ -8,12 +8,14 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { AllSongsListComponent } from './all-songs-list/all-songs-list.component';
+import { AddSongComponent } from './add-song/add-song.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AllSongsListComponent
+    AllSongsListComponent,
+    AddSongComponent
   ],
   imports: [
     NgbModule.forRoot(),

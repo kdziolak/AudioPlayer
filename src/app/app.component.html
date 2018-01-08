@@ -2,26 +2,18 @@
   <div class="row">
     <div class="menu col-lg-3">
       <h1 class="logo"><a href="#">MusiControl</a></h1>
-      <ul class="nav flex-column">
-        <li class="nav-item active">
-          Wszystkie utwory
-        </li>
-        <li class="nav-item">
-          Rodzaj muzyki
-        </li>
-        <li class="nav-item">
-          Szukaj utworu
-        </li>
-        <li class="nav-item">
-          Artyści
-        </li>
-        <li class="nav-item">
-          Dodaj swój utwór
+      <ul #activeLi (click)="setActive($event)" class="nav flex-column">
+        <li *ngFor="let option of menuClass"
+            ngClass="{{option.optionName}}"
+            class="nav-item"
+            >
+          {{option.decription}}
         </li>
       </ul>
     </div>
     <div class="other col-lg-9">
-      <app-all-songs-list [songs]="songs"></app-all-songs-list>
+      <app-all-songs-list *ngIf="checkLi(activeLi) === 'song-list'" [songs]="songs"></app-all-songs-list>
+      <app-add-song *ngIf="checkLi(activeLi) === 'add-song'" (save)="save($event)"></app-add-song>
     </div>
   </div>
 </div>
